@@ -1,0 +1,343 @@
+:root {
+    --titulo-fuente: 'Playfair Display', serif;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--titulo-fuente);
+    display: flex;
+    flex-direction: column;
+    background: url();
+    min-height: 200vh;
+    background-color: #0EB1F6;
+    padding: 0px;
+    position: relative;
+}
+
+.overshadow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 5;
+    background: linear-gradient(
+        120deg,
+        rgba(68, 136, 221, 0.1) 0%,   
+        rgba(68, 136, 221, 0.4) 25%,   
+        rgba(68, 136, 221, 0.1) 50%,     
+        rgba(68, 136, 221, 0.4) 100%       
+    );
+    background-size: 200% auto;
+    animation: colores 3s infinite both;
+
+}
+.music {
+    position: fixed;
+    width: 80px;
+    height: 80px;
+    top: 30px;
+    left: 30px;
+    z-index: 100; 
+    cursor: pointer;
+    background-image: url('https://media1.giphy.com/media/ZdAe6qPmwPbzVcOmdo/giphy.webp');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%; /* Opcional: si quieres el icono circular */
+    transition: transform 0.2s ease, background-image 0.3s ease;
+}
+
+.wrapped{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    height: 100vh;
+    background-color: #0EB1F6;
+    flex-direction: row;
+    overflow: hidden;  
+    place-content: center;
+}
+.title{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    animation: desaparecer linear;
+    animation-timeline: scroll(root);
+    z-index: 10;
+}
+
+
+h1 {
+    font-family: var(--titulo-fuente);
+    font-size: 120px;
+    letter-spacing: 8px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(
+        30deg, 
+        #ffffff 0%, 
+        #48d 25%, 
+        #ffffff 50%, 
+        #48d 75%, 
+        #ffffff 100%
+    );
+    background-size: 200% auto; 
+    background-clip: text;
+    color: transparent; 
+    animation: llegar 1.3s both, colores 3s infinite both;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: 150px;
+    left: 0;
+    height: 5px;
+    width: 0%; 
+    background: linear-gradient(
+        90deg, 
+        #0EB1F6 0%, 
+        #ffffff 25%, 
+        #0EB1F6 50%, 
+        #ffffff 75%, 
+        #0EB1F6 100%
+    );
+    background-size: 200% auto;
+    animation: rellenar 2s both, colores 3s infinite;
+    animation-delay: 2s;
+    overflow: hidden;
+    transform: skew(30deg);
+}
+
+h1::first-letter{
+    font-size: 120px;
+}
+
+h2{
+    position: absolute;
+    left: 70px;
+    top: -15PX;
+    transform: skew(30deg);
+    font-size: 40PX;
+    animation: llegarh2 1.3s, rellenar 2s both, colores 4s infinite;
+    background: linear-gradient(
+        30deg, 
+        #ffffff 0%, 
+        #48d 25%, 
+        #ffffff 50%, 
+        #48d 75%, 
+        #ffffff 100%
+    );
+    background-clip: text;
+    background-size: 200% auto; 
+    color: transparent; 
+}
+
+.reload{
+    color: #48E;
+    background: linear-gradient(
+        120deg,
+        rgb(169, 148, 219) 0%, 
+        #48d 25%, 
+        rgb(171, 147, 231) 50%, 
+        #48d 75%, 
+        rgb(167, 143, 228) 100%
+    );
+    color: transparent;
+    background-clip: text;
+    background-size: 200% auto; 
+    animation: rellenar 2s both, colores 4s infinite;
+}
+
+.persona{
+    color: #fff;
+    background: linear-gradient(
+        90deg,
+        #d49a9a 0%,
+        #48d 25%, 
+        #d49a9a 50%,
+        #48d 75%, 
+        #d49a9a 100%
+    );
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation:  colores 4s infinite;
+}
+
+#bg-video {
+    background-color: rgb(165, 182, 182);
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: bottom;
+    animation: aparecerImg 1.5s both, desaparecerImg linear;
+    animation-timeline: auto, scroll(root);
+}
+
+
+@keyframes 
+aparecer {
+    from{
+        opacity: 0;
+    }to{
+        opacity: 1;
+    }
+}
+
+@keyframes desaparecer {
+    from {
+        transform: translateY(0);
+    }   
+    to {
+        transform: translateX(-600px);
+        opacity: 0;
+    }
+}
+
+@keyframes desaparecerImg {
+    from {
+        transform: translateY(0);
+    }   
+    to {
+        transform: translateX(600px);
+        opacity: 0;
+    }
+}
+
+@keyframes aparecerImg{
+    from {
+        transform: translateX(0px);
+        opacity: 0;
+    }   
+    to {
+        transform: translateX(600px);
+        opacity: 1;
+    }
+}
+
+@keyframes llegar {
+    from {
+        transform: translateY(500px) skew(30deg);
+    }
+    to {
+        transform: translateY(0) skew(30deg);
+    }
+}
+
+
+@keyframes llegarh2 {
+    from{
+        transform: translateY(-500px);
+    }to{
+        transform: translateY(0px, 0px);
+
+    }
+}
+
+@keyframes rellenar {
+    from{
+        width: 0%;
+    }to{
+        width: 85%;
+    }
+}
+
+@keyframes colores {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: -200% center;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .wrapped {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .music {
+        width: 60px;
+        height: 60px;
+        top: 90%;
+        left: 5px;
+    }
+
+    .title{
+        position: absolute;
+        margin: auto;
+        z-index: 10;
+        align-self: center;
+    }
+
+    h1 {
+        font-size: 55px;
+        letter-spacing: 4px;
+        text-align: center;
+    }
+
+    h1::first-letter {
+        font-size: 55px;
+    }
+
+    h1::before {
+        top: 75px;
+        height: 3px;
+    }
+
+    h2 {
+        font-size: 24px;
+        left: 30px;
+        top: -20px;
+    }
+
+    #bg-video {
+        max-height: 100%;
+        border-radius: 12px;
+    }
+
+    @keyframes desaparecer {
+        from { transform: translateY(0); }
+        to { transform: translateY(-200px); opacity: 0; }
+    }
+
+    @keyframes desaparecerImg {
+        from { transform: translateY(0); }
+        to { transform: translateY(200px); opacity: 0; }
+    }
+
+    @keyframes aparecerImg {
+        from { transform: translateY(100px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        font-size: 80px;
+        letter-spacing: 6px;
+    }
+
+    h1::first-letter {
+        font-size: 80px;
+    }
+
+    h1::before {
+        top: 105px;
+    }
+
+    h2 {
+        font-size: 30px;
+        left: 40px;
+    }
+}

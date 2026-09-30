@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="scroll.css">
+    <title>Persona 3 Reload</title>
+</head>
+<body>
+    <div class="overshadow">
+
+    </div>
+    <div id="btnMusica" class="music"></div>
+
+    <audio id="miMusica" autoplay loop>
+        <source src="assets/YTDown.com_YouTube_Media_aKFjIaHTFEo_009_128k.mp3" type="audio/mpeg">
+        Tu navegador no soporta este elemento de audio.
+    </audio>
+    <div class="wrapped">
+        <div class="title">
+            <h1><span class="persona">Per</span>sona 3</h1>
+            <h2><span class="reload">Re</span>load</h2>
+        </div>
+        <img id="bg-video" src="https://image.api.playstation.com/vulcan/ap/rnd/202307/2605/6baaae2db9ae0bfa2c1ac692e2f866fd9b1b75cb7969fee1.png" alt="Persona 3 Reload Hero">
+    </div>
+
+    <div class="wrapped">
+    </div>
+    <script>
+        const musica = document.getElementById('miMusica');
+        const boton = document.getElementById('btnMusica');
+
+        boton.addEventListener('click', () => {
+            if (musica.paused) {
+                musica.play();
+            } else {
+                musica.pause();
+            }
+        });
+    </script>
+
+    <script>
+        const audio = document.getElementById('miMusica');
+        audio.volume = 0.1; 
+    </script>
+</body>
+</html>
